@@ -14,9 +14,11 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		setInterval( () => {
-			this.changeName();
-		}, 100);
+		// setInterval( () => {
+		// 	this.changeName();
+		// }, 20);
+
+		this.changeName();
 	}
 
 	changeName() {
@@ -27,6 +29,10 @@ class App extends React.Component {
 		});
 
 		name = null;
+
+		requestAnimationFrame( () => {
+			this.changeName();
+		});
 	}
 
 	render() {
