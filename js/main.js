@@ -7,17 +7,26 @@ import Chance from "chance";
 class App extends React.Component {
 	constructor() {
 		super();
+
 		this.state = {
 			name: ''
 		}
+	}
 
+	componentDidMount() {
 		setInterval( () => {
-			let name = chance.name();
+			this.changeName();
+		}, 100);
+	}
 
-			this.setState({
-				name: name
-			});
-		}, 10)
+	changeName() {
+		let name = chance.name();
+
+		this.setState({
+			name: name
+		});
+
+		name = null;
 	}
 
 	render() {
